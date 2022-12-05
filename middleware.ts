@@ -11,15 +11,13 @@ export const middleware = async (req: NextRequest) => {
     `${req.nextUrl.origin}/api/get-greeting/${name}`
   );
 
-  // if (slugFetch.status === 404)
-  //   return NextResponse.redirect(req.nextUrl.origin);
+  if (slugFetch.status === 404)
+    return NextResponse.redirect(req.nextUrl.origin);
 
   const data = await slugFetch.json();
 
-  console.log(data);
-  //
-  // if (data?.greeting)
-  //   return NextResponse.redirect("https://www.codingcodax.dev/");
+  if (data?.greeting)
+    return NextResponse.redirect("https://www.codingcodax.dev/");
 
   return NextResponse.next();
 };
