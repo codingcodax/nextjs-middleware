@@ -10,7 +10,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const name = req.query["name"];
+  const name = req.query["slug"];
 
   if (!name || typeof name !== "string") {
     res.status(404).json({ error: "Please use with a valid name" });
